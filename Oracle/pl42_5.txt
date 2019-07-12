@@ -1,0 +1,18 @@
+DECLARE
+	--i integer;
+BEGIN
+	FOR i IN REVERSE 10..1 LOOP
+		dbms_output.put_line(i);
+	END LOOP;
+
+END;
+
+/*
+	<<<<<<<SYNTAX>>>>>>>>
+	
+	FOR var IN [REVERSE] Val1..Val2 LOOP
+		----------
+		----------
+		----------
+	END LOOP;
+*/

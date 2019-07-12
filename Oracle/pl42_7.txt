@@ -1,0 +1,13 @@
+DECLARE
+	i integer;
+BEGIN
+	i := 1;
+	/* LOOP ... END LOOP; is an endless loop with no default condition provided*/
+	LOOP
+		EXIT WHEN i>=10;	-- EXIT WHEN <cond> statement is used to terminate this loop
+		dbms_output.put_line(i);
+		i := i + 1;
+	END LOOP;
+	
+END;
+/

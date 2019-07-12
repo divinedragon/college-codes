@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION max_sal(dno number) RETURN number IS
+	
+	CURSOR c1 IS select sal from emp42 where deptno = dno and sal = (select max(sal) from emp42 where deptno = dno);
+	--max1 emp.sal%type := 0;
+	--empl emp.empno%type;
+	ctr number := 0;
+	
+
+BEGIN
+	
+	FOR emprec IN c1 LOOP
+		EXIT WHEN c1%notfound;
+		--if emprec.sal=max1 THEN
+			ctr := ctr + 1;
+		--END IF;
+	
+	END LOOP;
+	--dbms_output.put_line(max1);
+	RETURN ctr;
+END;

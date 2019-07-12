@@ -1,0 +1,447 @@
+SQL> create table t1 (c1 number);
+create table t1 (c1 number)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create table t042 (c1 number);
+
+Table created.
+
+SQL> drop table t042;
+
+Table dropped.
+
+SQL> desc t1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ C1                                                 NUMBER
+
+SQL> select * from t1;
+
+no rows selected
+
+SQL> desc t2;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ C1                                                 NUMBER
+
+SQL> select * t1;
+select * t1
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from t1;
+
+no rows selected
+
+SQL> \
+SP2-0042: unknown command "\" - rest of line ignored.
+SQL> /
+
+        C1                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+
+SQL> select * from t1 union select * from t2;
+
+        C1                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+         5                                                                      
+
+SQL> select * from t1 union all select * from t2;
+
+        C1                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+         2                                                                      
+         4                                                                      
+         5                                                                      
+
+7 rows selected.
+
+SQL>  select * from t1 intersect  select * from t2;
+
+        C1                                                                      
+----------                                                                      
+         2                                                                      
+         4                                                                      
+
+SQL> /
+
+        C1                                                                      
+----------                                                                      
+         2                                                                      
+         4                                                                      
+
+SQL> select * from t1 intersect all select * from t2;
+select * from t1 intersect all select * from t2
+                           *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL>  select * from t1 minus  select * from t2;
+
+        C1                                                                      
+----------                                                                      
+         1                                                                      
+         3                                                                      
+
+SQL>  select * from t2 minus  select * from t1;
+
+        C1                                                                      
+----------                                                                      
+         5                                                                      
+
+SQL>  select * from t1 union  select * from t1 intersect  select * from t2;
+
+        C1                                                                      
+----------                                                                      
+         2                                                                      
+         4                                                                      
+
+SQL> select empno, ename, deptno from emp where sal >= 3000;
+
+     EMPNO ENAME          DEPTNO                                                
+---------- ---------- ----------                                                
+      7788 SCOTT              20                                                
+      7839 KING               10                                                
+      7902 FORD               20                                                
+
+SQL> select empno, ename, deptno from emp where sal >= 3000
+  2  union
+  3  select empno, ename, deptno from emp where deptno = 10;
+
+     EMPNO ENAME          DEPTNO                                                
+---------- ---------- ----------                                                
+      7782 CLARK              10                                                
+      7788 SCOTT              20                                                
+      7839 KING               10                                                
+      7902 FORD               20                                                
+      7934 MILLER             10                                                
+
+SQL>  select empno, ename, deptno from emp where sal >= 3000
+  2   union
+  3   select empno, ename, sal from emp where deptno = 10;
+
+     EMPNO ENAME          DEPTNO                                                
+---------- ---------- ----------                                                
+      7782 CLARK            2450                                                
+      7788 SCOTT              20                                                
+      7839 KING               10                                                
+      7839 KING             5000                                                
+      7902 FORD               20                                                
+      7934 MILLER           1300                                                
+
+6 rows selected.
+
+SQL>  select empno, ename, deptno from emp where sal >= 3000
+  2   union
+  3  select * from emp;
+ select empno, ename, deptno from emp where sal >= 3000
+ *
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> create view empview_042 as select empno, ename, sal from emp;
+
+View created.
+
+SQL> select * from empview_042;
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7369 SMITH             800                                                
+      7499 ALLEN            1600                                                
+      7521 WARD             1250                                                
+      7566 JONES            2975                                                
+      7654 MARTIN           1250                                                
+      7698 BLAKE            2850                                                
+      7782 CLARK            2450                                                
+      7788 SCOTT            3000                                                
+      7839 KING             5000                                                
+      7844 TURNER           1500                                                
+      7876 ADAMS            1100                                                
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7900 JAMES             950                                                
+      7902 FORD             3000                                                
+      7934 MILLER           1300                                                
+
+14 rows selected.
+
+SQL> create view v42 as select * from emp where deptno = 10;
+
+View created.
+
+SQL> select * from v42;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+SQL> insert into empview_042 values(42,'VARSHA',5000);
+
+1 row created.
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+        42 VARSHA                                          5000                 
+                                                                                
+                                                                                
+
+15 rows selected.
+
+SQL> select * from empview_042;
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7369 SMITH             800                                                
+      7499 ALLEN            1600                                                
+      7521 WARD             1250                                                
+      7566 JONES            2975                                                
+      7654 MARTIN           1250                                                
+      7698 BLAKE            2850                                                
+      7782 CLARK            2450                                                
+      7788 SCOTT            3000                                                
+      7839 KING             5000                                                
+      7844 TURNER           1500                                                
+      7876 ADAMS            1100                                                
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7900 JAMES             950                                                
+      7902 FORD             3000                                                
+      7934 MILLER           1300                                                
+        42 VARSHA           5000                                                
+
+15 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> /
+
+Rollback complete.
+
+SQL>  select * from empview_042;
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7369 SMITH             800                                                
+      7499 ALLEN            1600                                                
+      7521 WARD             1250                                                
+      7566 JONES            2975                                                
+      7654 MARTIN           1250                                                
+      7698 BLAKE            2850                                                
+      7782 CLARK            2450                                                
+      7788 SCOTT            3000                                                
+      7839 KING             5000                                                
+      7844 TURNER           1500                                                
+      7876 ADAMS            1100                                                
+
+     EMPNO ENAME             SAL                                                
+---------- ---------- ----------                                                
+      7900 JAMES             950                                                
+      7902 FORD             3000                                                
+      7934 MILLER           1300                                                
+
+14 rows selected.
+
+SQL> create view ev_42 as select ename, sal from emp;
+
+View created.
+
+SQL> select * from ev_42;
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+SMITH             800                                                           
+ALLEN            1600                                                           
+WARD             1250                                                           
+JONES            2975                                                           
+MARTIN           1250                                                           
+BLAKE            2850                                                           
+CLARK            2450                                                           
+SCOTT            3000                                                           
+KING             5000                                                           
+TURNER           1500                                                           
+ADAMS            1100                                                           
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+JAMES             950                                                           
+FORD             3000                                                           
+MILLER           1300                                                           
+
+14 rows selected.
+
+SQL> insert into ev_42 values('VARSHA', 5000);
+insert into ev_42 values('VARSHA', 5000)
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("BCA"."EMP"."EMPNO") 
+
+
+SQL> delete from ev_42 where ename like 'A%';
+
+2 rows deleted.
+
+SQL> select * from ev_42;
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+SMITH             800                                                           
+WARD             1250                                                           
+JONES            2975                                                           
+MARTIN           1250                                                           
+BLAKE            2850                                                           
+CLARK            2450                                                           
+SCOTT            3000                                                           
+KING             5000                                                           
+TURNER           1500                                                           
+JAMES             950                                                           
+FORD             3000                                                           
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+MILLER           1300                                                           
+
+12 rows selected.
+
+SQL> create view empv42_1 as select * from empview_042 where deptno = 20;
+create view empv42_1 as select * from empview_042 where deptno = 20
+                                                        *
+ERROR at line 1:
+ORA-00904: invalid column name 
+
+
+SQL> create view empv42_1 as select * from v42 where deptno = 20;
+
+View created.
+
+SQL> select * from emp42_1;
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+
+14 rows selected.
+
+SQL> create view v1_042 as select empno, ename, emp.deptno, sal, dname from emp, dept where emp.deptno= dept.deptno;
+create view v1_042 as select empno, ename, emp.deptno, sal, dname from emp, dept where emp.deptno= dept.deptno
+                                                                                                        *
+ERROR at line 1:
+ORA-00904: invalid column name 
+
+
+SQL> spool off

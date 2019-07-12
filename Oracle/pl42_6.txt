@@ -1,0 +1,9 @@
+DECLARE
+	i integer;
+BEGIN
+	i := 1;
+	WHILE i<=10 LOOP
+		dbms_output.put_line(i);
+		i := i+1;
+	END LOOP;
+END;

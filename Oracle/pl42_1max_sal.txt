@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION max_sal(dno number) RETURN emp.empno%type IS
+	
+	--CURSOR c1 IS select empno, sal from emp42 where deptno = deptno;
+	max emp.sal%type;
+	empl emp.empno%type;
+	
+
+BEGIN
+	
+	SELECT max(sal) INTO max from emp42 where deptno = dno;
+	SELECT empno INTO empl from emp42 where sal = max;
+	RETURN empl;
+END;

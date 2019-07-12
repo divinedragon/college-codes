@@ -1,0 +1,5 @@
+CREATE TRIGGER insertSal_42 BEFORE INSERT OF sal ON emp42 FOR EACH ROW
+
+BEGIN
+	insert into temp42 values(:old.empno, :old.sal, :new.sal);
+END;

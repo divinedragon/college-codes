@@ -1,0 +1,17 @@
+*{border-width:0px;	padding:0px; margin:0px;}
+body{margin:20px 80px 20px 80px;width:100%;}
+#container{width:420px; height:300px; margin-top:10px;}
+#container h1{padding:0px 0px 5px 0px; margin:5px 0px 10px 0px; font:bold 20px 'Arial', serif;
+	color:orange; border-bottom:1px dashed #CCCCCC; text-align:center;}
+.back_container{background:url("../background/1.jpg") no-repeat; height:267px;}
+.hoverbox{list-style-type:none;width:100%;}
+.hoverbox a{ cursor:default; }
+.hoverbox a .expand {display:none;}
+.hoverbox a:hover .expand{position:absolute; display:block; z-index:1; left:-60px;top:-33px;}
+.hoverbox div{padding:0px; border:1px solid #BBBBBB; width:125px; height:75px; text-align:center;
+	background-color:white; font:bold italic 60px 'Book Antiqua'; color:#DDDDDD;}
+.hoverbox li{border:1px solid #CCCCCC; padding:5px; display:inline;	float:left; margin:0px;
+	position:relative; background:#F9F9F9;}
+.hoverbox .expand{border-color:#000; width:250px; height:150px;padding:5px;color:#777777;
+font:10px 'Verdana';}
+.hoverbox .expand span{font:10px 'Verdana';width:100%;margin:0px 0px 0px 0px;}

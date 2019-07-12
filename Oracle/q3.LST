@@ -1,0 +1,1072 @@
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4000        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4000        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1250        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       2975                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1250       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4000        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2450                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3000                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5000                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1500          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       4000        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4400                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3000                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4000                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set sal = sal+1000;
+
+14 rows updated.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       5000        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       5000        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       2250        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       3975                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       2250       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       5000        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       3450                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       4000                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       6000                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       2500          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       5000        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       5400                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       4000                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       5000                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set sal = 1000, comm = comm + 100;
+
+14 rows updated.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       1000        200     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       1000        400     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1000        600     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       1000                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1000       1500     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       1000        200     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       1000                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       1000                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       1000                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1000        100     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       1000        600     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       1000                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       1000                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       1000                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set sal = 1000, comm = nvl(comm,0) + 100;
+
+14 rows updated.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       1000        300     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       1000        500     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1000        700     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       1000        100     
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1000       1600     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       1000        300     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       1000        100     
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       1000        100     
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       1000        100     
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1000        200     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       1000        700     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       1000        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       1000        100     
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       1000        100     
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4000        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4000        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1250        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       2975                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1250       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4000        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2450                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3000                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5000                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1500          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       4000        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4400                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3000                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4000                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set sal = sal+100 where sal>=3000;
+
+9 rows updated.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4100        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4100        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1250        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       2975                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1250       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4100        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2450                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3100                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5100                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1500          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       4100        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4500                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3100                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4100                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> update emp42 set sal = sal+100 where deptno = 20 and job = 'CLERK';
+
+1 row updated.
+
+SQL> select * from emp42 where deptno = 20 and job = 'CLERK';
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4100        100     
+        20                                                                      
+                                                                                
+
+SQL> update emp42 set sal = 10000 where job = 'MANAGER';
+
+3 rows updated.
+
+SQL> select * from emp42 where job = 'MANAGER';
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81      10000                
+        20                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81      10000        100     
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER          7839 09-JUN-81      10000                
+        10                                                                      
+                                                                                
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4000        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4000        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1250        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81       2975                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1250       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4000        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2450                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3000                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5000                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1500          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       4000        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4400                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3000                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4000                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set sal = 2500 where sal = 3000;
+
+2 rows updated.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> update emp42 set sal = sal + (sal*0.1);
+
+14 rows updated.
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4400        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4400        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1375        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81     3272.5                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1375       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4400        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2695                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3300                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5500                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1650          0     
+        30                                                                      
+                                                                                
+      7876 Minal      CLERK            7788 12-JAN-83       4400        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4840                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3300                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4400                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set ename = 'HARRY' where ename = 'Minal';
+
+1 row updated.
+
+SQL> select * from emp;
+
+no rows selected
+
+SQL> select * from emp42;
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK            7902 17-DEC-80       4400        100     
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN         7698 20-FEB-81       4400        300     
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN         7698 22-FEB-81       1375        500     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER          7839 02-APR-81     3272.5                
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN         7698 28-SEP-81       1375       1400     
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER          7839 01-MAY-81       4400        100     
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER          7839 09-JUN-81       2695                
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST          7566 09-DEC-82       3300                
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT             17-NOV-81       5500                
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN         7698 08-SEP-81       1650          0     
+        30                                                                      
+                                                                                
+      7876 HARRY      CLERK            7788 12-JAN-83       4400        500     
+                                                                                
+                                                                                
+      7900 JAMES      CLERK            7698 03-DEC-81       4840                
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB               MGR HIREDATE         SAL       COMM     
+---------- ---------- ---------- ---------- --------- ---------- ----------     
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST          7566 03-DEC-81       3300                
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK            7782 23-JAN-82       4400                
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> update emp42 set comm = 100 where deptno = 10 and comm = null;
+
+0 rows updated.
+
+SQL> update emp42 set comm = 100 where deptno = 10 and comm is null;
+
+3 rows updated.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> create table emp42_1 as select empno, ename, sal, job, comm from emp42;
+create table emp42_1 as select empno, ename, sal, job, comm from emp42
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> drop table emp42_1;
+
+Table dropped.
+
+SQL> create table emp42_1 as select empno, ename, sal, job, comm from emp42;
+
+Table created.
+
+SQL> select * from emp42_1;
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+
+14 rows selected.
+
+SQL> insert into emp42_1 values(1234,'VARSHA',2500,'ANALYST',500);
+
+1 row created.
+
+SQL> select * from emp42_1;
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+      1234 VARSHA           2500 ANALYST           500                          
+
+15 rows selected.
+
+SQL> insert into emp42_1 values(1234,'VARSHA',2500,'ANALYST',500);
+
+1 row created.
+
+SQL>  select * from emp42_1;
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+      1234 VARSHA           2500 ANALYST           500                          
+      1234 VARSHA           2500 ANALYST           500                          
+
+16 rows selected.
+
+SQL> desc emp42_1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                     NOT NULL VARCHAR2(10)
+ SAL                                                NUMBER(7,2)
+ JOB                                       NOT NULL VARCHAR2(10)
+ COMM                                               NUMBER(7,2)
+
+SQL> update emp42_1 set empno = 1245 where empno = 1234 limit 1;
+update emp42_1 set empno = 1245 where empno = 1234 limit 1
+                                                   *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  update emp42_1 set empno = 1245 where distinct(1234);
+ update emp42_1 set empno = 1245 where distinct(1234)
+                                       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> update emp42_1 set distinct(1245) where empno = (select distinct(empno) from emp42_1 where empno = 1234);
+update emp42_1 set distinct(1245) where empno = (select distinct(empno) from emp42_1 where empno = 1234)
+                   *
+ERROR at line 1:
+ORA-01747: invalid user.table.column, table.column, or column specification 
+
+
+SQL> insert into emp42_1 (empno, ename, job) values(4567, 'ABC' , 'CLERK')'
+  2  ;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> insert into emp42_1 (empno, ename, job) values(4567, 'ABC' , 'CLERK');
+
+1 row created.
+
+SQL> select * from emp42_1;
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+      1234 VARSHA           2500 ANALYST           500                          
+      1234 VARSHA           2500 ANALYST           500                          
+      4567 ABC                   CLERK                                          
+
+17 rows selected.
+
+SQL> delete from emp42_1 where empno = 1234 limit 1;
+delete from emp42_1 where empno = 1234 limit 1
+                                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> insert into emp42_1 values(&a, &b, &c, &d, &e);
+Enter value for a: 3456
+Enter value for b: CASPIAN
+Enter value for c: 2500
+Enter value for d: ANALYST
+Enter value for e: 200
+old   1: insert into emp42_1 values(&a, &b, &c, &d, &e)
+new   1: insert into emp42_1 values(3456, CASPIAN, 2500, ANALYST, 200)
+insert into emp42_1 values(3456, CASPIAN, 2500, ANALYST, 200)
+                                                *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> /
+Enter value for a: 3456
+Enter value for b: 'CASPIAN'
+Enter value for c: 2500
+Enter value for d: 'ANALYST'
+Enter value for e: 200
+old   1: insert into emp42_1 values(&a, &b, &c, &d, &e)
+new   1: insert into emp42_1 values(3456, 'CASPIAN', 2500, 'ANALYST', 200)
+
+1 row created.
+
+SQL> insert into emp42_1 values(&a, '&b', &c, '&d', &e);
+Enter value for a: 2345
+Enter value for b: XYZ
+Enter value for c: 3000
+Enter value for d: CLERK
+Enter value for e: 100
+old   1: insert into emp42_1 values(&a, '&b', &c, '&d', &e)
+new   1: insert into emp42_1 values(2345, 'XYZ', 3000, 'CLERK', 100)
+
+1 row created.
+
+SQL> select * from emp42_1 where empno = &eno;
+Enter value for eno: 1234
+old   1: select * from emp42_1 where empno = &eno
+new   1: select * from emp42_1 where empno = 1234
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      1234 VARSHA           2500 ANALYST           500                          
+      1234 VARSHA           2500 ANALYST           500                          
+
+SQL> select * from &a;
+Enter value for a: emp42_1
+old   1: select * from &a
+new   1: select * from emp42_1
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7369 SMITH            4000 CLERK             100                          
+      7499 ALLEN            4000 SALESMAN          300                          
+      7521 WARD             1250 SALESMAN          500                          
+      7566 JONES            2975 MANAGER                                        
+      7654 MARTIN           1250 SALESMAN         1400                          
+      7698 BLAKE            4000 MANAGER           100                          
+      7782 CLARK            2450 MANAGER                                        
+      7788 SCOTT            3000 ANALYST                                        
+      7839 KING             5000 PRESIDENT                                      
+      7844 TURNER           1500 SALESMAN            0                          
+      7876 Minal            4000 CLERK             500                          
+
+     EMPNO ENAME             SAL JOB              COMM                          
+---------- ---------- ---------- ---------- ----------                          
+      7900 JAMES            4400 CLERK                                          
+      7902 FORD             3000 ANALYST                                        
+      7934 MILLER           4000 CLERK                                          
+      1234 VARSHA           2500 ANALYST           500                          
+      1234 VARSHA           2500 ANALYST           500                          
+      4567 ABC                   CLERK                                          
+      3456 CASPIAN          2500 ANALYST           200                          
+      2345 XYZ              3000 CLERK             100                          
+
+19 rows selected.
+
+SQL> select &a, &b from emp42_1;
+Enter value for a: empno
+Enter value for b: ename
+old   1: select &a, &b from emp42_1
+new   1: select empno, ename from emp42_1
+
+     EMPNO ENAME                                                                
+---------- ----------                                                           
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 Minal                                                                
+
+     EMPNO ENAME                                                                
+---------- ----------                                                           
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+      7934 MILLER                                                               
+      1234 VARSHA                                                               
+      1234 VARSHA                                                               
+      4567 ABC                                                                  
+      3456 CASPIAN                                                              
+      2345 XYZ                                                                  
+
+19 rows selected.
+
+SQL> select &a, &b from &c;
+Enter value for a: empno
+Enter value for b: ename
+Enter value for c: emp42_1
+old   1: select &a, &b from &c
+new   1: select empno, ename from emp42_1
+
+     EMPNO ENAME                                                                
+---------- ----------                                                           
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 Minal                                                                
+
+     EMPNO ENAME                                                                
+---------- ----------                                                           
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+      7934 MILLER                                                               
+      1234 VARSHA                                                               
+      1234 VARSHA                                                               
+      4567 ABC                                                                  
+      3456 CASPIAN                                                              
+      2345 XYZ                                                                  
+
+19 rows selected.
+
+SQL> select distinct(*) from emp42_1;
+select distinct(*) from emp42_1
+                *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select * from emp42_1 where empno = dstinct(empno);
+select * from emp42_1 where empno = dstinct(empno)
+                                    *
+ERROR at line 1:
+ORA-00904: invalid column name 
+
+
+SQL>  select * from emp42_1 where empno = distinct(empno);
+ select * from emp42_1 where empno = distinct(empno)
+                                     *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> spool off

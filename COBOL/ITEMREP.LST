@@ -1,0 +1,140 @@
+
+ PRGS\ITEMREP.COB                        Thu Mar 08 08:36:54 2007    Page   1
+ line number source line   Microsoft COBOL                       Version 2.10
+
+   1         IDENTIFICATION DIVISION.
+   2         PROGRAM-ID. ItemReport.
+   3         ENVIRONMENT DIVISION.
+   4         INPUT-OUTPUT SECTION.
+   5         FILE-CONTROL.
+   6             SELECT FileIn1 ASSIGN TO DISK
+   7             ORGANIZATION IS LINE SEQUENTIAL.
+   8             SELECT FileIn2 ASSIGN TO DISK
+   9             ORGANIZATION IS LINE SEQUENTIAL.
+  10             SELECT FileOut ASSIGN TO DISK
+  11             ORGANIZATION IS LINE SEQUENTIAL.
+  12         DATA DIVISION.
+  13         FILE SECTION.
+  14         FD FileIn1
+  15             LABEL RECORDS ARE STANDARD
+  16             VALUE OF FILE-ID IS "Master.dat".
+  17         01 RecIn1.
+  18             05  MItemCode        PIC X(4).
+  19             05  MItemName        PIC X(10).
+  20    
+  21         FD FileIn2
+  22             LABEL RECORDS ARE STANDARD
+  23             VALUE OF FILE-ID IS "Trasac.dat".
+  24         01 RecIn2.
+  25             05  TItemCode        PIC X(4).
+  26             05  Qty              PIC 9(4).
+  27             05  Rate             PIC 9(4)V99.
+  28    
+  29         FD FileOut
+  30             LABEL RECORDS ARE STANDARD
+  31             VALUE OF FILE-ID IS "ItemRepo.dat".
+  32         01 RecOut                PIC X(80).
+  33    
+  34         WORKING-STORAGE SECTION.
+  35         01 TodatDate             PIC X(6).
+  36         01 MyDate.
+  37             05  YY               PIC 99.
+  38             05  MM               PIC 99.
+  39             05  DD               PIC 99.
+  40         01 PageNo                PIC 99 VALUE 1.
+  41         01 Cost                  PIC 9(5)V99 VALUE 0.
+  42         01 TotalCost             PIC 9(6)V99 VALUE 0.
+  43         01 SrNo                  PIC 99 VALUE 1.
+  44         01 Heading1.
+  45             05  F                PIC X(30) VALUE ALL SPACES.
+  46             05  F                PIC X(15) VALUE "XYZ Co. Ltd.".
+  47         01 Heading2.
+  48             05  F                PIC X(3) VALUE ALL SPACES.
+  49             05  F                PIC X(8) VALUE "DATE : ".
+  50             05  DDOut            PIC 99.
+  51             05  F                PIC X VALUE "/".
+  52             05  MMOut            PIC 99.
+  53             05  F                PIC X VALUE "/".
+  54             05  YYOut            PIC 99.
+  55             05  F                PIC X(25) VALUE ALL SPACES.
+  56             05  F                PIC X(10) VALUE "Page No. : ".
+  57             05  PageNoOut        PIC 99.
+
+ PRGS\ITEMREP.COB                        Thu Mar 08 08:36:54 2007    Page   2
+ line number source line   Microsoft COBOL                       Version 2.10
+
+  58         01 LineRec               PIC X(80) VALUE ALL "-".
+  59         01 DetailRec1.
+  60             05  F                PIC X(3) VALUE ALL SPACES.
+  61             05  F                PIC X(15) VALUE "Item Code : ".
+  62             05  ItemCodeOut      PIC 9(4).
+  63             05  F                PIC X(20) VALUE ALL SPACES.
+  64             05  F                PIC X(15) VALUE "Item Name : ".
+  65             05  ItemName         PIC X(10).
+  66         01 RecHead.
+  67             05  F                PIC X(10) VALUE "  Srl. No.".
+  68             05  F                PIC X(15) VALUE "Quantity".
+  69             05  F                PIC X(15) VALUE "Rate".
+  70             05  F                PIC X(15) VALUE "Total Cost".
+  71         01 DetailRec2.
+  72             05  F                PIC X(4) VALUE ALL SPACES.
+  73             05  SrNoOut          PIC 99.
+  74             05  F                PIC X(6) VALUE ALL SPACES.
+  75             05  QtyOut           PIC 9(4).
+  76             05  F                PIC X(10) VALUE ALL SPACES.
+  77             05  RateOut          PIC 9(4).99.
+  78             05  F                PIC X(9) VALUE ALL SPACES.
+  79             05  CostOut          PIC 9(5).99.
+  80         01 Footer.
+  81             05  F                PIC X(35) VALUE ALL SPACES.
+  82             O5  F                PIC X(20) VALUE "Total Cost of Item : ".
+  83             05  TotalCostOut     PIC 9(6).99.
+  84    
+  85         PROCEDURE DIVISION.
+  86         ControlPara.
+  87             OPEN INPUT FileIn1 INPUT FileIn2 OUTPUT FileOut.
+  88             ACCEPT TodayDate FROM DATE.
+  89             DISPLAy "ALL THE FILES OPENED SUCCESSFULLY.".
+  90             MOVE TodatDate TO MyDate.
+  91             MOVE DD TO DDOut.
+  92             MOVE MM TO MMOut.
+  93             MOVE YY TO YYOut.
+  94             PERFORM ReadFile1.
+  95             PERFORM ReadFile2.
+  96             PERFORM PagePara UNTIL MItemCode = HIGH-VALUE
+  97                              AND   TItemCode = HIGH-VALUE.
+  98             CLOSE FileIn1 FileIn2 FileOut.
+  99             STOP RUN.
+ 100         ReadFile1.
+ 101             READ FileIn1 AT END MOVE HIGH-VALUE TO MItemCode.
+ 102    
+ 103         ReadFile2.
+ 104             READ FileIn2 AT END MOVE HIGH-VALUE TO TItemCode.
+ 105    
+ 106         PagePara.
+ 107             WRITE RecOut FROM Heading1.
+ 108             WRITE RecOut FROM Heading2.
+ 109             MOVE MItemCode TO ItemCodeOut.
+ 110             MOVE MItemName TO ItemNameOut.
+ 111             WRITE RecOut FROM DetailRec1.
+ 112             WRITE RecOut FROM LineRec.
+ 113             WRITE RecOut.
+ 114             WRITE RecOut.
+
+ PRGS\ITEMREP.COB                        Thu Mar 08 08:36:54 2007    Page   3
+ line number source line   Microsoft COBOL                       Version 2.10
+
+ 115             WRITE RecOut FROM RecHead.
+ 116    
+ 117    
+0056:Literal truncated to size of item. 
+0082:Unrecognizable element is ignored.  O5
+0082:Unrecognizable element is ignored.  F 
+0082:Unrecognizable element is ignored.  PIC 
+0082:Unrecognizable element is ignored.  X 
+0082:Unrecognizable element is ignored.  ( 
+0081:Group item,therefore PIC/JUST/BLANK/SYNC is ignored. 
+0082:Name omitted; entry bypassed. ) 
+0084:/W/Level 01 assumed. 
+0088:Statement deleted due to erroneous syntax. TODAYDATE 
+0088:Unrecogniz

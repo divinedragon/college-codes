@@ -1,0 +1,240 @@
+body
+{
+    margin:5px;
+    padding:0px;
+    font:10px 'Verdana';
+}
+
+a img
+{
+    border:0px;
+}
+
+#header
+{
+    text-align:center;
+    height:120px;
+}
+
+#header div
+{
+    float:left;
+}
+
+#header #logo,#header #indira_gandhi
+{
+    width:12%;
+    border:0px solid black;
+}
+
+#header #banner
+{
+    width:75%;
+}
+
+#middle
+{
+    overflow:auto;
+    width:100%;
+    margin-top:20px;
+}
+
+#middle #left
+{
+    float:left;
+    width:20%;
+}
+
+#middle #right
+{
+    float:right;
+    width:20%;
+    border:1px solid black;
+}
+
+#middle #center
+{
+    float:left;
+    width:58%;
+    border:0px solid black;
+    margin-left:10px;
+}
+
+#leftnav ul
+{
+    margin:0px;
+    padding:0px;
+    font:14px 'Trebuchet MS';
+}
+
+#leftnav ul li
+{
+    border-bottom:1px solid #0A1F29;
+    list-style:none;
+    background:#133C53;
+}
+
+#leftnav ul li a, #leftnav ul li a:visited
+{
+    padding:2px 5px;
+    display:block;
+    text-decoration:none;
+    color:white;
+    border-bottom:1px solid #20688E;
+}
+
+#leftnav ul li a:hover
+{
+    background:#84BBD1;
+}
+
+#center a img
+{
+    border:0px solid black;
+}
+
+
+#news-container
+{
+}
+
+#news-container ul li
+{
+    width:100%;
+    display:inline-block;
+}
+
+#news-container ul li div
+{
+    width:100%;
+    height:40px;
+    border-bottom:1px dashed #AAAAAA;
+    padding:3px 5px;
+}
+
+#news-container ul li div a, #news-container ul li div a:visited
+{
+    color:#0099CC;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+#news-container ul li div:hover
+{
+    background:#C6F5FF;
+}
+
+#news-container ul li div a:hover
+{
+    text-decoration:underline;
+}
+
+.clear
+{
+    clear:both
+}
+
+#gallery
+{
+    position:relative;
+    height:300px;
+}
+
+#gallery a
+{
+    float:left;
+    position:absolute;
+}
+    
+#gallery a img
+{
+    border:none;
+}
+    
+#gallery a.show
+{
+    z-index:500;
+}
+
+#gallery .caption
+{
+    z-index:600; 
+    background-color:#000; 
+    color:#ffffff; 
+    height:50px; 
+    width:100%; 
+    position:absolute;
+    bottom:0;
+    text-align:center;
+    font-weight:bold;
+}
+
+#gallery .caption .content
+{
+    margin:5px
+}
+    
+#gallery .caption .content h3
+{
+    margin:0;
+    padding:0;
+    color:#1DCCEF;
+}
+
+form fieldset
+{
+    padding:10px;
+}
+
+form legend
+{
+    font:bold 16px 'Trebuchet MS';
+}
+
+form label
+{
+    font:12px 'Verdana';
+    width:150px;
+    display:inline-block;
+    vertical-align:top;
+}
+
+form input
+{
+    font:12px 'Verdana';
+}
+
+form p
+{
+    margin:0px;
+    margin-top:5px;
+    border:1px solid white;
+}
+
+form p:hover
+{
+    border:1px solid #FFFF00;
+    background:#FFFFCC;
+}
+
+#btn_submit,#btn_reset
+{
+    border:1px solid #0099CC;
+    background:white;
+    color:#0099CC;
+    font-weight:bold;
+    padding:5px;
+    width:100px;
+}
+
+#btn_submit:hover,#btn_reset:hover
+{
+    background:#0099CC;
+    color:white;
+}
+
+#footer
+{
+    text-align:center;
+    font:bold 18px 'Trebuchet MS';
+}

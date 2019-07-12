@@ -1,0 +1,31 @@
+CREATE OR REPLACE PROCEDURE p42(tdeptno emp.deptno%type) IS
+	
+	--row emp%rowtype;
+	cursor c1 IS select empno, ename, sal from emp42 where deptno = tdeptno;
+	tempno emp.empno%type;
+	tename emp.ename%type;
+	tsal emp.sal%type;
+	--tdeptno emp.deptno%type;
+
+BEGIN
+
+	--select * into row from emp where deptno = deptno;
+	
+	OPEN c1;
+	
+	LOOP 
+		FETCH c1 INTO tempno, tename, tsal;
+	
+	EXIT WHEN c1%notfound;
+
+		insert into temp42 values(tempno,tename,tsal,tdeptno);
+	END LOOP;
+		delete from emp42 where deptno = tdeptno;
+	dbms_output.put_line(c1%rowcount);
+exception
+	WHEN no_data_found THEN
+	dbms_output.put_line('No Data Found');
+	WHEN others THEN
+	dbms_output.put_line('Others');
+end;
+/

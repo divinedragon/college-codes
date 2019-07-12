@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<!-- Version 1 of Our Chocolate Selection Application -->
+	<servlet>
+		<servlet-name>ChocolateSelectionVersion1</servlet-name>
+		<servlet-class>com.example.web.ChocolateControl_V1</servlet-class>
+	</servlet>
+	<!-- Version 2 of Our Chocolate Selection Application -->
+	<servlet>	
+		<servlet-name>ChocolateSelectionVersion2</servlet-name>
+		<servlet-class>com.example.web.ChocolateControl_V2</servlet-class>
+	</servlet>
+	<!-- Version 3 of Our Chocolate Selection Application -->
+	<servlet>
+		<servlet-name>ChocolateSelectionVersion3</servlet-name>
+		<servlet-class>com.example.web.ChocolateControl_V3</servlet-class>
+	</servlet>
+
+	<!-- Version 1 of Our Chocolate Selection Application -->
+	<servlet-mapping>
+		<servlet-name>ChocolateSelectionVersion1</servlet-name>
+		<url-pattern>/chocolateSelection_1.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChocolateSelectionVersion2</servlet-name>
+		<url-pattern>/chocolateSelection_2.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChocolateSelectionVersion3</servlet-name>
+		<url-pattern>/chocolateSelection_3.do</url-pattern>
+	</servlet-mapping>
+</web-app>

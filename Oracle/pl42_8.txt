@@ -1,0 +1,30 @@
+declare
+	cursor c1 IS select empno, ename, sal from emp42;
+	empno emp.empno%type;
+	ename emp.ename%type;
+	sal emp.sal%type;
+
+begin
+	OPEN c1;
+	loop 
+		fetch c1 into empno, ename, sal;
+	EXIT WHEN c1%notfound;
+		insert into temp42 values(empno,ename,sal);
+		if (sal <= 1000) then
+		update emp42 set sal = sal*1.1 WHERE empno = empno;
+		elsif (sal > 1000 & sal <= 3000) then
+		update emp42 set sal = sal*1.15 WHERE empno = empno;
+		elsif (sal > 3000 & sal <= 5000) then
+		update emp42 set sal = sal*1.2 WHERE empno = empno;
+		else 
+		update emp42 set sal = sal*1.25 WHERE empno = empno;
+	END LOOP;
+	
+	dbms_output.put_line(c1%rowcount);
+exception
+	WHEN no_data_found THEN
+	dbms_output.put_line('No Data Found');
+	WHEN others THEN
+	dbms_output.put_line('Others');
+end;
+/

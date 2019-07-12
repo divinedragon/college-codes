@@ -1,0 +1,14 @@
+DECLARE
+	tempno emp.empno%type;
+	tename emp.ename%type;
+	tsal emp.sal%type;
+BEGIN
+	SELECT empno, ename, sal INTO tempno, tename, tsal FROM emp WHERE empno = 7902;
+	--dbms_output.put_line('Emp Number >> '|| to_char(tempno));
+	--dbms_output.put_line('Emp Name >> '|| tename);
+	--dbms_output.put_line('Emp Salary >> '|| to_char(tsal));
+	CREATE TABLE t_42 AS SELECT empno, ename, sal FROM emp WHERE empno = 1;
+	dbms_output.put_line('Inserting Values into temporary Table');
+	INSERT INTO t_042 (empno, ename, sal)VALUES(tempno,tename,tsal);
+END;
+/

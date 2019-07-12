@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Apple Like Menu</title>
+<link rel="stylesheet" href="./menu.css" type="text/css" />
+<script type="text/javascript" language="javascript">
+	<!--
+		/*********************************************************************************
+		VARIABLE DECLARATION SECTION
+				All the variables that are declared here control the menu. The description of each of them is 
+		given along with it.
+		*********************************************************************************/
+		var menucontainerTop = 5;	//Offset of the Menu from the Top
+		var menucontainerLeft = 200;	//Offset of the Menu from the Left
+		var menuWidth = 300;	//Width of the Menu
+		var menuHeadHeight = 20;	//Height of the Header of the Main Menu
+		
+		var timeId = 0;	//Time Out variable
+		var showTimeout = 10;	//No. of millisecs used for iteration while expantion of menu
+		var hideTimeout = 20;	//No. of millisecs used for iteration while expantion of menu
+		var ItemId = new Array();	//Stores all the Ids for the Menu Items
+		var ItemTop = new Array();	//Stores the Top Offset of the Items
+		
+		var totalItems = 6;	//Set for your total no. of Menu Items in the Menu
+		var height = 60;	//Height of the details section of the Menu Item
+		var imgheight = 256;	//Height of the Image DIV of Menu Item
+		var imgscroll = 32;	//Amount of the Image that is scroll in each iteration
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//NOTE :- Make sure imgscroll is a multiple of imgheight. Else it will distort the whole menu
+		//	structure while sliding.
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		function setupMenuHead()
+		{	/****************************************************************************** 
+			This function initializes the Menu Head Section. It positions it in the correct place.
+			******************************************************************************/
+			var menuHeadObj = document.getElementById("menu");
+			menuHeadObj.style.top = menucontainerTop + "px";	//Setting the Distance from the Top
+			menuHeadObj.style.left = menucontainerLeft + "px";	//Setting the Distance from the Left			
+			menuHeadObj.style.width = menuWidth + "px";	//Setting the Width of the Menu
+			menuHeadObj.style.height = menuHeadHeight + "px";	//Setting the height of the Head Section
+			
+			setupMenuItems();	//Now lets set up the Menu Items
+		}
+		
+		function setupMenuItems()
+		{	/****************************************************************************** 
+				This function setups the Menu Items of the Main Menu. Their ordering to their position on the 
+				form, everything regarding it is handled by this function. 
+			******************************************************************************/
+			var menuItemObj = null;	//For storing the Menu Item DIV
+			
+			var itemTop = menucontainerTop + menuHeadHeight;	//Calculating the Top Offset for 1st Item
+			var i=0;
+			var zIndex = totalItems;	//zIndex order to be set via this variable
+			
+			for (i=1; i<= totalItems; i++,zIndex--)
+			{	menuItemObj = document.getElementById("menu"+i);	//Getting the Menu Item
+				menuItemObj.style.width = menuWidth + "px";	//Setting the Width
+				menuItemObj.style.top = itemTop + "px";	//Setting the Top Position
+				menuItemObj.style.left = menucontainerLeft + "px";	//Setting the Left Position
+				menuItemObj.style.zIndex = zIndex;	//Setting the zIndex Order
+				
+				var menuItemObjImg = menuItemObj.getElementsByTagName("div")[0];	//Image DIV
+				var menuItemObjDesc = menuItemObj.getElementsByTagName("div")[1];	//Details DIV
+								
+				menuItemObjImg.style.height = imgheight + "px";	//Setting the height of the Image DIV
+				menuItemObjImg.style.marginTop = "0px";
+				menuItemObjDesc.style.height = (height-5)+"px";	//Setting the height of the Description DIV
+				menuItemObjDesc.style.cursor = "pointer";
+												
+				itemTop = itemTop + height;	//Calculating the Next Top Offset for next Menu Item
+				
+				ItemId[i-1] = menuItemObj.id;	//Store the Id of the Menu Items in our Id Array
+				ItemTop[i-1] = 0;		//Store their default offset to 0 in ItemTop Array
+				
+			}
+		}
+		
+		function controlSliding(ItemNo)
+		{	window.clearTimeout(timeId);	//End previous animation as soon as new item is hovered
+			
+			ItemNo = ItemNo - 1;	//The Array Indexes are 1 less than the assigned values to the menu items
+	
+			hide(ItemNo);	//First we hide the required menu items
+		}
+		
+		function hide(ItemNo)
+		{	var i=0;
+			var toMoveMore = false;
+			
+			for(i=0, toMoveMore = false; i<ItemNo; i++)
+			{	var menuItemImageObj = document.getElementById(ItemId[i]).getElementsByTagName("DIV")[0];
+				slideUpwards(menuItemImageObj, i);
+				if (ItemTop[i] > -(imgheight))
+				{	toMoveMore = true;
+				}
+			}
+			
+			if (toMoveMore == true)
+			{	timeId = window.setTimeout("hide("+ItemNo+")",hideTimeout);
+			}
+			else
+			{	show(ItemNo);		//Now we show the required menu item
+			}
+		}
+		
+		function slideUpwards(ItemImageObj, ItemNo)
+		{	//Slide the image DIV upwards
+			if (ItemTop[ItemNo] > -(imgheight))
+			{	ItemTop[ItemNo] = ItemTop[ItemNo] - imgscroll;
+				ItemImageObj.style.marginTop = ItemTop[ItemNo]  + "px";
+			}		
+		}
+		
+		function show(ItemNo)
+		{	
+			var i=0;
+			var toMoveMore = false;
+			
+			for(i=ItemNo, toMoveMore = false; i<ItemId.length; i++)
+			{	var menuItemImageObj = document.getElementById(ItemId[i]).getElementsByTagName("DIV")[0];
+				slideDownwards(menuItemImageObj, i);
+				if (ItemTop[i] < 0)
+				{	toMoveMore = true;
+				}
+			}
+			
+			if (toMoveMore == true)
+			{	timeId = window.setTimeout("show("+ItemNo+")",showTimeout);
+			}
+			else
+			{	window.clearTimeout(timeId);
+				return true;
+			}
+		}
+		
+		function slideDownwards(ItemImageObj, ItemNo)
+		{	//Slide the Menu Item Downwards
+			if (ItemTop[ItemNo] < 0)
+			{	ItemTop[ItemNo] = ItemTop[ItemNo] + imgscroll;
+				ItemImageObj.style.marginTop = ItemTop[ItemNo]  + "px";
+			}		
+		}
+	-->
+</script>
+</head>
+<body onload="setupMenuHead();">
+<!-- MAIN MENU SECTION - BEGINING -->
+	<!-- This Part is the Main Menu Section - Quite Like the Apple Menu in right side of Download Section -->
+	<div id="menu">		<!-- This is the Main Control Block For all the other Child Menus -->
+		<div id="menu_head">DOWNLOAD SECTION</div>		<!-- This is the Main Menu Head - Remains Static during the fun 
+																part of the Main Menu. -->																	
+	</div>
+	
+	<!-- This is the First Menu Item - START -->
+			<div id="menu1" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/ubuntu.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(1)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Ubuntu 7.04 - FeistyFawn</div>	<!-- Item Heading -->
+					<div class="itemdesc">Most acclaimed OS.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the First Menu Item - END -->
+	
+	<!-- This is the Second Menu Item - START -->
+			<div id="menu2" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/mac_osx.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(2)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Mac OS X</div>	<!-- Item Heading -->
+					<div class="itemdesc">Best OS made Ever. You will die for it.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the Second Menu Item - END -->
+	
+	<!-- This is the Third Menu Item - START -->
+			<div id="menu3" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/mandriva.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(3)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Mandriva</div>	<!-- Item Heading -->
+					<div class="itemdesc">Most stable Linux package.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the Third Menu Item - END -->
+	
+	<!-- This is the Fourth Menu Item - START -->
+			<div id="menu4" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/linspire.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(4)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Linspire</div>	<!-- Item Heading -->
+					<div class="itemdesc">Another nice Linux package. Though I have not tried it.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the Fourth Menu Item - END -->
+	
+	<!-- This is the Fifth Menu Item - START -->
+			<div id="menu5" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/winxp_pro.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(5)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Windows XP Pro</div>	<!-- Item Heading -->
+					<div class="itemdesc">Most powerful Windows series of OS.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the Fifth Menu Item - END -->
+	
+	<!-- This is the Sixth Menu Item - START -->
+			<div id="menu6" class="menuitem">		<!-- Main Control Block for Menu Item 1 -->
+				<div class="image"><img src="./images/vista_ult.png" /></div>		<!-- Item Image -->
+				<div class="detail" onMouseOver="controlSliding(6)">		<!-- Item Description - Does not Hide, but slides up/down -->
+					<div class="itemhead">Windows Vista Ultimate</div>	<!-- Item Heading -->
+					<div class="itemdesc">Really nice graphics. But the Interface looks complicated.</div>	<!-- Item Description -->
+				</div>
+			</div>
+	<!-- This is the Sixth Menu Item - END -->
+	
+<!-- MAIN MENU SECTION - ENDING -->
+</body>
+</html>

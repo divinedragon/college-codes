@@ -1,0 +1,33 @@
+/* CSS Document */
+/* Created By :- Deepak Shakya
+	Date - 10/08/2007, 2018 Hrs
+	
+	This CSS Document provides the markup for the Menu, which is quite like the one in the download 
+	section of the Apple.com.
+*/
+
+/* Main Menu Container */
+#menu{	border:1px solid #CCCCCC; display:block; text-align:center; overflow:hidden;
+				position:absolute; background-color:#F5F5F5;
+			}
+/* Heading of the Main Menu */
+#menu #menu_head{	font:bold 15px 'Arial'; text-align:center;	}
+
+/* Main Menu Item Container */
+.menuitem{	border:1px solid #CCCCCC; text-align:center; background-color:white;
+					position:absolute;overflow:hidden;
+				}
+/* Main Menu Item Image Container */
+.menuitem .image{	margin:0px;	}
+
+/* Main Menu Item Details Container */
+.menuitem .detail{	text-align:left; position:relative; padding:2px 5px 2px 5px;
+								border-top:1px solid #CCCCCC;
+							}
+							
+/* Main Menu Item Details - Heading */
+.menuitem .detail .itemhead{	font:bold 14px 'Arial'; padding-bottom:3px;	}
+
+/* Main Menu Item Details - Description */
+.menuitem .detail .itemdesc{	font:11px 'Arial'; font-weight:normal; color:#666666;	}
+

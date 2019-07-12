@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>:: MCSL - 016 - Session 7 - Exercise 7.1 ::</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.16" />
+    <meta name="author" content="Deepak Shakya" />
+    <meta name="enrolment_number" content="092272598" />
+    <link href="../../style/base.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h2>Form with all types of input elements</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Form</legend>
+            <p>
+                <label for="txtName">Name :</label>
+                <input type="text" name="txtName" id="txtName" />
+            </p>
+            <p>
+                <label for="txtPassword">Password :</label>
+                <input type="password" name="txtPassword" id="txtPassword" />
+            </p>
+            <p>
+                <label>Hobbies :</label>
+                <input type="checkbox" name="chbxReading" id="chbxReading" />&nbsp;
+                <label for="chbxReading">Reading</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="chbxPlaying" id="chbxPlaying" />
+                <label for="chbxPlaying">Playing</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="chbxMovies" id="chbxMovies" />
+                <label for="chbxMovies">Movies</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p>
+                <label>Gender :</label>
+                <input type="radio" name="rbtnGender" id="rbtnMale" />&nbsp;
+                <label for="rbtnMale">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="rbtnGender" id="rbtnFemale" />&nbsp;
+                <label for="rbtnFemale">Female</label>
+            </p>
+            <p>
+                <label for="objFile">Select file to Upload :</label>
+                <input type="file" name="objFile" id="objFile" />
+            </p>
+            
+            <input type="hidden" name="txtHiddenValue" value="This value is not displayed on the form" />
+            <input type="button" name="btnValidate" value="Validate data" />
+            <input type="submit" name="btnSubmit" value="Submit" />
+            <input type="reset" name="btnReset" value="Reset" />
+        </fieldset>
+    </form>
+    <br/><a href="../index.html#section2" target="_parent">Go to Index Page</a>
+</body>
+</html>

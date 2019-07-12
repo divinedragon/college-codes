@@ -1,0 +1,5 @@
+CREATE TRIGGER updateSal_42 BEFORE UPDATE OF sal ON emp42 FOR EACH ROW
+
+BEGIN
+	update temp42 set :new.sal = :old.sal+100;
+END;

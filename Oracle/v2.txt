@@ -1,0 +1,783 @@
+SQL> desc all_sequences
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SEQUENCE_OWNER                            NOT NULL VARCHAR2(30)
+ SEQUENCE_NAME                             NOT NULL VARCHAR2(30)
+ MIN_VALUE                                          NUMBER
+ MAX_VALUE                                          NUMBER
+ INCREMENT_BY                              NOT NULL NUMBER
+ CYCLE_FLAG                                         VARCHAR2(1)
+ ORDER_FLAG                                         VARCHAR2(1)
+ CACHE_SIZE                                NOT NULL NUMBER
+ LAST_NUMBER                               NOT NULL NUMBER
+
+SQL> select  SEQUENCE_OWNER, SEQUENCE_NAME from all_sequences;
+
+SEQUENCE_OWNER                 SEQUENCE_NAME
+------------------------------ ------------------------------
+MDSYS                          SAMPLE_SEQ
+MDSYS                          SDO_IDX_TAB_SEQUENCE
+BCA                            BCA
+BCA                            GDS1
+BCA                            HI
+BCA                            I3SEQ
+BCA                            I4SEQ
+BCA                            IANK
+BCA                            ISEC
+BCA                            ISEQ
+BCA                            ISEQT
+
+SEQUENCE_OWNER                 SEQUENCE_NAME
+------------------------------ ------------------------------
+BCA                            ISEQUENCE
+BCA                            ISRIS
+BCA                            ISRS
+BCA                            JSEQ
+BCA                            MSEQ
+BCA                            N2
+BCA                            PAGALPAN
+BCA                            POOH
+BCA                            PQR
+BCA                            PRACHIAGE
+BCA                            PSEQ
+
+SEQUENCE_OWNER                 SEQUENCE_NAME
+------------------------------ ------------------------------
+BCA                            Q2
+BCA                            QWE
+BCA                            S
+BCA                            S0021
+BCA                            S021
+BCA                            S044
+BCA                            S1
+BCA                            S210
+BCA                            S3
+BCA                            S30
+BCA                            S53
+
+SEQUENCE_OWNER                 SEQUENCE_NAME
+------------------------------ ------------------------------
+BCA                            S99
+BCA                            SAT
+BCA                            SE2
+BCA                            SEQ0044
+BCA                            SEQ044
+BCA                            SEQ1
+BCA                            SEQ_NEW
+BCA                            SEQ_NEW2
+BCA                            SEQ_NEW3
+BCA                            SEQ_NEW4
+BCA                            SEQ_NEW5
+
+SEQUENCE_OWNER                 SEQUENCE_NAME
+------------------------------ ------------------------------
+BCA                            SQN
+BCA                            SQNC
+BCA                            S_NEW
+BCA                            S_NOSEQ
+BCA                            TSEQ
+BCA                            WIBBLE_SEQ
+BCA                            XYZ
+SHIRISH                        S111
+
+52 rows selected.
+
+SQL> select * from all_sequences;
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+MDSYS                          SAMPLE_SEQ                              1
+1.0000E+27            1 N N         20           1
+
+MDSYS                          SDO_IDX_TAB_SEQUENCE                    1
+1.0000E+27            1 Y N         20           1
+
+BCA                            BCA                                    10
+       200          -10 Y N          2         140
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            GDS1                                   -3
+        10            2 Y N          3           3
+
+BCA                            HI                                      1
+       100            1 N N         20          10
+
+BCA                            I3SEQ                                   1
+1.0000E+27            1 N N         20          11
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            I4SEQ                                   1
+1.0000E+27            1 N N         20          31
+
+BCA                            IANK                                    1
+         5            1 N N         20           1
+
+BCA                            ISEC                                    1
+         5            1 N N         20           6
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            ISEQ                                    1
+1.0000E+27            2 N N         20          91
+
+BCA                            ISEQT                                   1
+        23            1 N N         20          23
+
+BCA                            ISEQUENCE                               1
+        99            1 N N         20          21
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            ISRIS                                   1
+         5            1 N N         20           1
+
+BCA                            ISRS                                    1
+         5            1 N N         20           1
+
+BCA                            JSEQ                                    1
+1.0000E+27            1 N N         20          31
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            MSEQ                                    1
+1.0000E+27            1 N N         20          30
+
+BCA                            N2                                      1
+       100            2 Y N          2         101
+
+BCA                            PAGALPAN                                1
+         5            1 N N         20           1
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            POOH                                    1
+       100           -2 N N         20           0
+
+BCA                            PQR                                     1
+        40            2 N N         20          30
+
+BCA                            PRACHIAGE                               1
+        10            1 N N         20          11
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            PSEQ                                    1
+1.0000E+27            1 N N         20          21
+
+BCA                            Q2                                      1
+        10           -1 Y N          2           8
+
+BCA                            QWE                                   -10
+         0           -2 Y N          3           0
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            S                                       1
+        10           -1 Y N          2           2
+
+BCA                            S0021                                   1
+        10            2 Y N          2           9
+
+BCA                            S021                                    1
+        10            1 Y N          2           1
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            S044                                    1
+        10            1 Y N          2           1
+
+BCA                            S1                                      1
+         5            1 N N         20           6
+
+BCA                            S210                                    5
+        10           -2 Y N          2           4
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            S3                                      2
+        10            2 Y N          2           5
+
+BCA                            S30                                     1
+        10           -1 Y N          2           8
+
+BCA                            S53                                    -1
+        10            1 Y N          2           5
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            S99                                     1
+        10           -1 Y N          2           2
+
+BCA                            SAT                                     1
+         5            1 N N         20           1
+
+BCA                            SE2                                     2
+        12            2 Y N          2           6
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            SEQ0044                                 1
+        10            1 Y N          2           1
+
+BCA                            SEQ044                                 -1
+        10           -1 Y N          2           4
+
+BCA                            SEQ1                                    2
+        20            2 Y N          2          14
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            SEQ_NEW                               -30
+1.0000E+27           20 N N         20         -20
+
+BCA                            SEQ_NEW2                                1
+        10            2 N N         20           2
+
+BCA                            SEQ_NEW3                                1
+1.0000E+27            2 N N         20           2
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            SEQ_NEW4                                1
+1.0000E+27            2 N N         20           1
+
+BCA                            SEQ_NEW5                                1
+1.0000E+27            2 N N         20           1
+
+BCA                            SQN                                     1
+        10            2 Y N          2           9
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            SQNC                                    1
+        10            1 Y N          5          11
+
+BCA                            S_NEW                                   1
+        10           -1 Y N          2           6
+
+BCA                            S_NOSEQ                                 1
+         5            1 N N         20           6
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            TSEQ                                    1
+1.0000E+27            1 N N         20          30
+
+BCA                            WIBBLE_SEQ                              1
+1.0000E+27            1 N N         20          21
+
+BCA                            XYZ                                     1
+         9            1 N N         20           1
+
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+SHIRISH                        S111                                    1
+        10            1 Y N          2           3
+
+
+52 rows selected.
+
+SQL> select * from all_sequences where sequence_name = 'bca';
+
+no rows selected
+
+SQL>  select * from all_sequences where sequence_name = 'BCA';
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE
+------------------------------ ------------------------------ ----------
+ MAX_VALUE INCREMENT_BY C O CACHE_SIZE LAST_NUMBER
+---------- ------------ - - ---------- -----------
+BCA                            BCA                                    10
+       200          -10 Y N          2         140
+
+
+SQL> set linesize 150
+SQL> l
+  1*  select * from all_sequences where sequence_name = 'BCA'
+SQL> /
+
+SEQUENCE_OWNER                 SEQUENCE_NAME                   MIN_VALUE  MAX_VALUE INCREMENT_BY C O
+------------------------------ ------------------------------ ---------- ---------- ------------ - -
+BCA                            BCA                                    10        200          -10 Y N
+
+SQL> select * from all_users;
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+SYS                                     0 04-SEP-01
+SYSTEM                                  5 04-SEP-01
+OUTLN                                  11 04-SEP-01
+DBSNMP                                 17 04-SEP-01
+ORDSYS                                 29 04-SEP-01
+AURORA$JIS$UTILITY$                    26 04-SEP-01
+OSE$HTTP$ADMIN                         27 04-SEP-01
+AURORA$ORB$UNAUTHENTICATED             28 04-SEP-01
+OLAPSVR                                39 04-SEP-01
+OLAPSYS                                37 04-SEP-01
+ORDPLUGINS                             30 04-SEP-01
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+MDSYS                                  31 04-SEP-01
+CTXSYS                                 32 04-SEP-01
+WKSYS                                  34 04-SEP-01
+EXAM                                  111 25-APR-06
+OLAPDBA                                40 04-SEP-01
+BBA3                                  103 26-DEC-05
+BBA4                                  104 26-DEC-05
+BBA5                                  105 26-DEC-05
+BBA6                                  106 26-DEC-05
+BBA7                                  107 26-DEC-05
+BBA8                                  108 26-DEC-05
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+BBA9                                  109 26-DEC-05
+BBA10                                 110 26-DEC-05
+QS_CBADM                               62 04-SEP-01
+QS_ADM                                 57 04-SEP-01
+QS                                     58 04-SEP-01
+QS_WS                                  59 04-SEP-01
+HR                                     53 04-SEP-01
+OE                                     54 04-SEP-01
+PM                                     55 04-SEP-01
+SH                                     56 04-SEP-01
+QS_ES                                  60 04-SEP-01
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+QS_OS                                  61 04-SEP-01
+RMAN                                   65 04-SEP-01
+QS_CB                                  63 04-SEP-01
+QS_CS                                  64 04-SEP-01
+MBAIT2                                 72 26-DEC-05
+SCOTT                                  66 04-SEP-01
+MBAIT                                  67 29-OCT-05
+MSCCA                                  68 29-OCT-05
+BCA                                    69 29-OCT-05
+BBA                                    70 29-OCT-05
+MBAIT1                                 71 26-DEC-05
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+MSCCA2                                 82 26-DEC-05
+MBAIT3                                 73 26-DEC-05
+MBAIT4                                 74 26-DEC-05
+MBAIT5                                 75 26-DEC-05
+MBAIT6                                 76 26-DEC-05
+MBAIT7                                 77 26-DEC-05
+MBAIT8                                 78 26-DEC-05
+MBAIT9                                 79 26-DEC-05
+MBAIT10                                80 26-DEC-05
+MSCCA1                                 81 26-DEC-05
+BCA2                                   92 26-DEC-05
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+MSCCA3                                 83 26-DEC-05
+MSCCA4                                 84 26-DEC-05
+MSCCA5                                 85 26-DEC-05
+MSCCA6                                 86 26-DEC-05
+MSCCA7                                 87 26-DEC-05
+MSCCA8                                 88 26-DEC-05
+MSCCA9                                 89 26-DEC-05
+MSCCA10                                90 26-DEC-05
+BCA1                                   91 26-DEC-05
+BBA2                                  102 26-DEC-05
+BCA3                                   93 26-DEC-05
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ---------
+BCA4                                   94 26-DEC-05
+BCA5                                   95 26-DEC-05
+BCA6                                   96 26-DEC-05
+BCA7                                   97 26-DEC-05
+BCA8                                   98 26-DEC-05
+BCA9                                   99 26-DEC-05
+BCA10                                 100 26-DEC-05
+BBA1                                  101 26-DEC-05
+SHIRISH                               112 23-JUN-06
+
+75 rows selected.
+
+SQL> desc all_tables
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- ------
+ OWNER                                                                               NOT NULL VARCHA
+ TABLE_NAME                                                                          NOT NULL VARCHA
+ TABLESPACE_NAME                                                                              VARCHA
+ CLUSTER_NAME                                                                                 VARCHA
+ IOT_NAME                                                                                     VARCHA
+ PCT_FREE                                                                                     NUMBER
+ PCT_USED                                                                                     NUMBER
+ INI_TRANS                                                                                    NUMBER
+ MAX_TRANS                                                                                    NUMBER
+ INITIAL_EXTENT                                                                               NUMBER
+ NEXT_EXTENT                                                                                  NUMBER
+ MIN_EXTENTS                                                                                  NUMBER
+ MAX_EXTENTS                                                                                  NUMBER
+ PCT_INCREASE                                                                                 NUMBER
+ FREELISTS                                                                                    NUMBER
+ FREELIST_GROUPS                                                                              NUMBER
+ LOGGING                                                                                      VARCHA
+ BACKED_UP                                                                                    VARCHA
+ NUM_ROWS                                                                                     NUMBER
+ BLOCKS                                                                                       NUMBER
+ EMPTY_BLOCKS                                                                                 NUMBER
+ AVG_SPACE                                                                                    NUMBER
+ CHAIN_CNT                                                                                    NUMBER
+ AVG_ROW_LEN                                                                                  NUMBER
+ AVG_SPACE_FREELIST_BLOCKS                                                                    NUMBER
+ NUM_FREELIST_BLOCKS                                                                          NUMBER
+ DEGREE                                                                                       VARCHA
+ INSTANCES                                                                                    VARCHA
+ CACHE                                                                                        VARCHA
+ TABLE_LOCK                                                                                   VARCHA
+ SAMPLE_SIZE                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ PARTITIONED                                                                                  VARCHA
+ IOT_TYPE                                                                                     VARCHA
+ TEMPORARY                                                                                    VARCHA
+ SECONDARY                                                                                    VARCHA
+ NESTED                                                                                       VARCHA
+ BUFFER_POOL                                                                                  VARCHA
+ ROW_MOVEMENT                                                                                 VARCHA
+ GLOBAL_STATS                                                                                 VARCHA
+ USER_STATS                                                                                   VARCHA
+ DURATION                                                                                     VARCHA
+ SKIP_CORRUPT                                                                                 VARCHA
+ MONITORING                                                                                   VARCHA
+ CLUSTER_OWNER                                                                                VARCHA
+ DEPENDENCIES                                                                                 VARCHA
+
+SQL> select user form dual;
+select user form dual
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select user from dual;
+
+USER
+------------------------------
+BCA
+
+SQL> create table t_42 (n1 number(2), n2 number(2));
+
+Table created.
+
+SQL> insert into t_42 values(&a,&s);
+Enter value for a: 1
+Enter value for s: 2
+old   1: insert into t_42 values(&a,&s)
+new   1: insert into t_42 values(1,2)
+
+1 row created.
+
+SQL> /
+Enter value for a: 3
+Enter value for s: 4
+old   1: insert into t_42 values(&a,&s)
+new   1: insert into t_42 values(3,4)
+
+1 row created.
+
+SQL> /
+Enter value for a: 5
+Enter value for s: 6
+old   1: insert into t_42 values(&a,&s)
+new   1: insert into t_42 values(5,6)
+
+1 row created.
+
+SQL> /
+Enter value for a: 7
+Enter value for s: 8
+old   1: insert into t_42 values(&a,&s)
+new   1: insert into t_42 values(7,8)
+
+1 row created.
+
+SQL> select * from t_42;\
+  2  \
+  3  
+SQL> 
+SQL> select * from t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+
+SQL> grant insert, select on t_42 to bca2;
+
+Grant succeeded.
+
+SQL> connect bca2/bca2@ora9db
+Connected.
+SQL> select * from t_42;
+select * from t_42
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+
+SQL> insert into bca.t_42 values(&a,&s);
+Enter value for a: 9
+Enter value for s: 0
+old   1: insert into bca.t_42 values(&a,&s)
+new   1: insert into bca.t_42 values(9,0)
+
+1 row created.
+
+SQL> /
+Enter value for a: 2
+Enter value for s: 1
+old   1: insert into bca.t_42 values(&a,&s)
+new   1: insert into bca.t_42 values(2,1)
+
+1 row created.
+
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> delete from bca.t_42;
+delete from bca.t_42
+                *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> connect bca/bca@ora9db;
+Connected.
+SQL> select * from t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> /
+
+Rollback complete.
+
+SQL>  select * from t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> revoke insert on t_42 from bca2;
+
+Revoke succeeded.
+
+SQL> connect bca2/bca2@ora9db
+Connected.
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> insert into bca.t_42 values(1,2);
+insert into bca.t_42 values(1,2)
+                *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> connect bca/bca@ora9db
+Connected.
+SQL> grant delete on t_42 on bca2;
+grant delete on t_42 on bca2
+                     *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> grant delete on t_42 to bca2;
+
+Grant succeeded.
+
+SQL> connect bca2/bca2@ora9db
+Connected.
+SQL> delete from bca.t_42 where n1 = 2;
+
+1 row deleted.
+
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+
+SQL> rollback
+  2  ;
+
+Rollback complete.
+
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> connect bca/bca@ora9db
+Connected.
+SQL> revoke all on t_42 from bca2;
+
+Revoke succeeded.
+
+SQL> grant insert , select on t_42 to bca2 with grant option;
+
+Grant succeeded.
+
+SQL> connect bca2/bca2@ora9db
+Connected.
+SQL> grant select on bca.t_42 to bca5;
+
+Grant succeeded.
+
+SQL> connect bca5/bca5@ora9db
+Connected.
+SQL> select * from bca.t_42;
+
+        N1         N2
+---------- ----------
+         1          2
+         3          4
+         5          6
+         7          8
+         9          0
+         2          1
+
+6 rows selected.
+
+SQL> connect bca/bca@or9db
+ERROR:
+ORA-12154: TNS:could not resolve service name
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect bca/bca@or9db
+ERROR:
+ORA-12154: TNS:could not resolve service name
+
+
+SQL> select * from bca.t_42;
+SP2-0640: Not connected
+SQL> connect bca/bca@ora9db
+Connected.
+SQL> 

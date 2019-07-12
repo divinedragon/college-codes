@@ -1,0 +1,391 @@
+SQL>  revoke all on t_42 from bca2;
+
+Revoke succeeded.
+
+SQL> connect bca5/bca5@ora9db;
+Connected.
+SQL> select * from bca.t_42;
+select * from bca.t_42
+                  *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> connect bca/bca@ora9db
+Connected.
+SQL> select hire_date, sysdate from emp;
+select hire_date, sysdate from emp
+       *
+ERROR at line 1:
+ORA-00904: invalid column name 
+
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select hiredate, sysdate, sysdate-hiredate from emp;
+
+HIREDATE  SYSDATE   SYSDATE-HIREDATE                                            
+--------- --------- ----------------                                            
+22-FEB-81 02-SEP-08       10054.5239                                            
+02-APR-81 02-SEP-08       10015.5239                                            
+28-SEP-81 02-SEP-08       9836.52388                                            
+01-MAY-81 02-SEP-08       9986.52388                                            
+09-DEC-82 02-SEP-08       9399.52388                                            
+08-SEP-81 02-SEP-08       9856.52388                                            
+03-DEC-81 02-SEP-08       9770.52388                                            
+
+7 rows selected.
+
+SQL>  select hiredate, sysdate, sysdate+hiredate from emp;
+ select hiredate, sysdate, sysdate+hiredate from emp
+                                  *
+ERROR at line 1:
+ORA-00975: date + date not allowed 
+
+
+SQL> select to_date('28-SEP-81') from dual;
+
+TO_DATE('                                                                       
+---------                                                                       
+28-SEP-81                                                                       
+
+SQL> select to_date('31-DEC-08') - sysdate from dual;
+
+TO_DATE('31-DEC-08')-SYSDATE                                                    
+----------------------------                                                    
+                  119.473519                                                    
+
+SQL> select add_months(sysdate,3) from dual;
+
+ADD_MONTH                                                                       
+---------                                                                       
+02-DEC-08                                                                       
+
+SQL> select add_months(sysdate,4) from dual;
+
+ADD_MONTH                                                                       
+---------                                                                       
+02-JAN-09                                                                       
+
+SQL>  select add_months(sysdate,-3) from dual;
+
+ADD_MONTH                                                                       
+---------                                                                       
+02-JUN-08                                                                       
+
+SQL>  select add_months('02-SEP-08',6) from dual;
+
+ADD_MONTH                                                                       
+---------                                                                       
+02-MAR-09                                                                       
+
+SQL> select months_between('31-DEC-08','02-SEP-08') from dual;
+
+MONTHS_BETWEEN('31-DEC-08','02-SEP-08')                                         
+---------------------------------------                                         
+                             3.93548387                                         
+
+SQL>  select months_between('31-DEC-08','02-DEC-08') from dual;
+
+MONTHS_BETWEEN('31-DEC-08','02-DEC-08')                                         
+---------------------------------------                                         
+                             .935483871                                         
+
+SQL>  select months_between('02-SEP-08','31-DEC-08') from dual;
+
+MONTHS_BETWEEN('02-SEP-08','31-DEC-08')                                         
+---------------------------------------                                         
+                             -3.9354839                                         
+
+SQL>  select last_day('02-SEP-08') from dual;
+
+LAST_DAY(                                                                       
+---------                                                                       
+30-SEP-08                                                                       
+
+SQL>  select last_day('02-NOV--08') from dual;
+ select last_day('02-NOV--08') from dual
+                 *
+ERROR at line 1:
+ORA-01841: (full) year must be between -4713 and +9999, and not be 0 
+
+
+SQL> select last_day('02-NOV-08') from dual;
+
+LAST_DAY(                                                                       
+---------                                                                       
+30-NOV-08                                                                       
+
+SQL>  select last_day('02-FEB-08') from dual;
+
+LAST_DAY(                                                                       
+---------                                                                       
+29-FEB-08                                                                       
+
+SQL> select next_day('02-SEP-08', 'Monday') from dual;
+
+NEXT_DAY(                                                                       
+---------                                                                       
+08-SEP-08                                                                       
+
+SQL> select next_day(sysdate, 'Monday') from dual;
+
+NEXT_DAY(                                                                       
+---------                                                                       
+08-SEP-08                                                                       
+
+SQL>  select next_day(sysdate, 'Tuesday')from dual;
+
+NEXT_DAY(                                                                       
+---------                                                                       
+09-SEP-08                                                                       
+
+SQL> select extract(year from sysdate) from dual;
+
+EXTRACT(YEARFROMSYSDATE)                                                        
+------------------------                                                        
+                    2008                                                        
+
+SQL> select extract(year from hiredate) , hiredate from emp;
+
+EXTRACT(YEARFROMHIREDATE) HIREDATE                                              
+------------------------- ---------                                             
+                     1981 22-FEB-81                                             
+                     1981 02-APR-81                                             
+                     1981 28-SEP-81                                             
+                     1981 01-MAY-81                                             
+                     1982 09-DEC-82                                             
+                     1981 08-SEP-81                                             
+                     1981 03-DEC-81                                             
+
+7 rows selected.
+
+SQL>  select extract(month from hiredate) , hiredate from emp;
+
+EXTRACT(MONTHFROMHIREDATE) HIREDATE                                             
+-------------------------- ---------                                            
+                         2 22-FEB-81                                            
+                         4 02-APR-81                                            
+                         9 28-SEP-81                                            
+                         5 01-MAY-81                                            
+                        12 09-DEC-82                                            
+                         9 08-SEP-81                                            
+                        12 03-DEC-81                                            
+
+7 rows selected.
+
+SQL>  select extract(day,month,year from hiredate) , hiredate from emp;
+ select extract(day,month,year from hiredate) , hiredate from emp
+                               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select extract(day  from hiredate), select extract(month from hiredate), year from hiredate) , hiredate from emp;
+select extract(day  from hiredate), select extract(month from hiredate), year from hiredate) , hiredate from emp
+                                    *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL>  select extract(day  from hiredate),  extract(month from hiredate), year from hiredate) , hiredate from emp;
+ select extract(day  from hiredate),  extract(month from hiredate), year from hiredate) , hiredate from emp
+                                                                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select hiredate, to_char(hiredate, 'mm/dd/yyyy') from emp;
+
+HIREDATE  TO_CHAR(HI                                                            
+--------- ----------                                                            
+22-FEB-81 02/22/1981                                                            
+02-APR-81 04/02/1981                                                            
+28-SEP-81 09/28/1981                                                            
+01-MAY-81 05/01/1981                                                            
+09-DEC-82 12/09/1982                                                            
+08-SEP-81 09/08/1981                                                            
+03-DEC-81 12/03/1981                                                            
+
+7 rows selected.
+
+SQL>  select extract(day  from hiredate),  extract(month from hiredate),  extract( year from hiredate) , hiredate from emp;
+
+EXTRACT(DAYFROMHIREDATE) EXTRACT(MONTHFROMHIREDATE) EXTRACT(YEARFROMHIREDATE)   
+------------------------ -------------------------- -------------------------   
+HIREDATE                                                                        
+---------                                                                       
+                      22                          2                      1981   
+22-FEB-81                                                                       
+                                                                                
+                       2                          4                      1981   
+02-APR-81                                                                       
+                                                                                
+                      28                          9                      1981   
+28-SEP-81                                                                       
+                                                                                
+
+EXTRACT(DAYFROMHIREDATE) EXTRACT(MONTHFROMHIREDATE) EXTRACT(YEARFROMHIREDATE)   
+------------------------ -------------------------- -------------------------   
+HIREDATE                                                                        
+---------                                                                       
+                       1                          5                      1981   
+01-MAY-81                                                                       
+                                                                                
+                       9                         12                      1982   
+09-DEC-82                                                                       
+                                                                                
+                       8                          9                      1981   
+08-SEP-81                                                                       
+                                                                                
+
+EXTRACT(DAYFROMHIREDATE) EXTRACT(MONTHFROMHIREDATE) EXTRACT(YEARFROMHIREDATE)   
+------------------------ -------------------------- -------------------------   
+HIREDATE                                                                        
+---------                                                                       
+                       3                         12                      1981   
+03-DEC-81                                                                       
+                                                                                
+
+7 rows selected.
+
+SQL> select hiredate, to_char(hiredate, 'dd/Mon/yy') from dual;\
+  2  
+SQL>  select hiredate, to_char(hiredate, 'dd/Mon/yy') from dual;
+ select hiredate, to_char(hiredate, 'dd/Mon/yy') from dual
+                          *
+ERROR at line 1:
+ORA-00904: invalid column name 
+
+
+SQL>  select hiredate, to_char(hiredate, 'dd/Mon/yy') from emp;
+
+HIREDATE  TO_CHAR(H                                                             
+--------- ---------                                                             
+22-FEB-81 22/Feb/81                                                             
+02-APR-81 02/Apr/81                                                             
+28-SEP-81 28/Sep/81                                                             
+01-MAY-81 01/May/81                                                             
+09-DEC-82 09/Dec/82                                                             
+08-SEP-81 08/Sep/81                                                             
+03-DEC-81 03/Dec/81                                                             
+
+7 rows selected.
+
+SQL> select hiredate, to_char(hiredate, 'dd/MON/yy') from emp;
+
+HIREDATE  TO_CHAR(H                                                             
+--------- ---------                                                             
+22-FEB-81 22/FEB/81                                                             
+02-APR-81 02/APR/81                                                             
+28-SEP-81 28/SEP/81                                                             
+01-MAY-81 01/MAY/81                                                             
+09-DEC-82 09/DEC/82                                                             
+08-SEP-81 08/SEP/81                                                             
+03-DEC-81 03/DEC/81                                                             
+
+7 rows selected.
+
+SQL>  select hiredate, to_char(hiredate, 'dd') from emp;
+
+HIREDATE  TO                                                                    
+--------- --                                                                    
+22-FEB-81 22                                                                    
+02-APR-81 02                                                                    
+28-SEP-81 28                                                                    
+01-MAY-81 01                                                                    
+09-DEC-82 09                                                                    
+08-SEP-81 08                                                                    
+03-DEC-81 03                                                                    
+
+7 rows selected.
+
+SQL>  select hiredate, to_char(hiredate, 'ddd') from emp;
+
+HIREDATE  TO_                                                                   
+--------- ---                                                                   
+22-FEB-81 053                                                                   
+02-APR-81 092                                                                   
+28-SEP-81 271                                                                   
+01-MAY-81 121                                                                   
+09-DEC-82 343                                                                   
+08-SEP-81 251                                                                   
+03-DEC-81 337                                                                   
+
+7 rows selected.
+
+SQL> c\'ddd'\'d'
+  1*  select hiredate, to_char(hiredate, 'd') from emp
+SQL> /
+
+HIREDATE  T                                                                     
+--------- -                                                                     
+22-FEB-81 1                                                                     
+02-APR-81 5                                                                     
+28-SEP-81 2                                                                     
+01-MAY-81 6                                                                     
+09-DEC-82 5                                                                     
+08-SEP-81 3                                                                     
+03-DEC-81 5                                                                     
+
+7 rows selected.
+
+SQL> c\'d'\'mon'
+  1*  select hiredate, to_char(hiredate, 'mon') from emp
+SQL> /
+
+HIREDATE  TO_                                                                   
+--------- ---                                                                   
+22-FEB-81 feb                                                                   
+02-APR-81 apr                                                                   
+28-SEP-81 sep                                                                   
+01-MAY-81 may                                                                   
+09-DEC-82 dec                                                                   
+08-SEP-81 sep                                                                   
+03-DEC-81 dec                                                                   
+
+7 rows selected.
+
+SQL> c\'mon'\'Month'
+  1*  select hiredate, to_char(hiredate, 'Month') from emp
+SQL> /
+
+HIREDATE  TO_CHAR(H                                                             
+--------- ---------                                                             
+22-FEB-81 February                                                              
+02-APR-81 April                                                                 
+28-SEP-81 September                                                             
+01-MAY-81 May                                                                   
+09-DEC-82 December                                                              
+08-SEP-81 September                                                             
+03-DEC-81 December                                                              
+
+7 rows selected.
+
+SQL> c\'Month'\'MONTH'
+  1*  select hiredate, to_char(hiredate, 'MONTH') from emp
+SQL> /
+
+HIREDATE  TO_CHAR(H                                                             
+--------- ---------                                                             
+22-FEB-81 FEBRUARY                                                              
+02-APR-81 APRIL                                                                 
+28-SEP-81 SEPTEMBER                                                             
+01-MAY-81 MAY                                                                   
+09-DEC-82 DECEMBER                                                              
+08-SEP-81 SEPTEMBER                                                             
+03-DEC-81 DECEMBER                                                              
+
+7 rows selected.
+
+SQL> spool off

@@ -1,0 +1,4 @@
+.hoverbox A {position:relative;}
+.hoverbox A:hover{display:block; font-size:100%;z-index:1;}
+.hoverbox A:hover .preview{left:-50px; top:-38px;}
+.hoverbox LI{position:static;}

@@ -1,0 +1,15 @@
+CREATE TRIGGER uidSal_42 BEFORE INSERT OR DELETE OR UPDATE OF sal ON emp42 FOR EACH ROW
+
+BEGIN
+	IF INSERTING THEN
+	insert into temp42 values(:new.empno,:new.sal,:new.sal);
+	END IF;
+	
+	IF DELETING THEN
+	delete from temp42 where empno = :old.empno;
+	END IF;
+	
+	IF UPDATING THEN
+	update temp42 set new_sal = :new.sal where empno = :old.empno;
+	END IF;
+END;

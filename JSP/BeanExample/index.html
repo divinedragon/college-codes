@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Using JavaBeans in JSP</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.16" />
+	<meta name="author" content="Deepak Shakya" />
+</head>
+<body>
+	<center>
+		<h1>Using JavaBeans in JSP</h1>
+		<form action="submit_data.do" method="post">
+		<table border="1" style="width:50%;">
+			<tr>
+				<td>Enter Prn No.</td>
+				<td><input type="text" name="prn" value="" maxlength="9"/></td>
+			</tr>
+			<tr>
+				<td>Enter Student Name</td>
+				<td><input type="text" name="name" value="" maxlength="20"/></td>
+			</tr>
+			<tr>
+				<td>Course</td>
+				<td>
+					<select name="course">
+						<option value="bba-it">BBA-IT</option>
+						<option value="bca">BCA</option>
+						<option value="mba-it">MBA-IT</option>
+						<option value="msc-ca">M.Sc(CA)</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Enter Address</td>
+				<td><textarea name="address"></textarea></td>
+			</tr>
+			<tr>
+				<td>Enter Contact No.</td>
+				<td><input type="text" name="contactno" value="" /></td>
+			</tr>
+			<tr>
+				<td>Enter Email Address</td>
+				<td><input type="text" name="email" value="" /></td>
+			</tr>
+			<tr>
+				<td>Enter Hobbies</td>
+				<td>
+					<input type="Checkbox" name="hobbies" value="reading" />Reading<br/>
+					<input type="Checkbox" name="hobbies" value="guppi" />Guppi<br/>
+					<input type="Checkbox" name="hobbies" value="gaana" />Gaana<br/>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<input type="submit" name="data_submitted" value="Accept My Details"/>
+		</form>
+	</center>
+</body>
+</html>

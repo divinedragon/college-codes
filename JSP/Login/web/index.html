@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Login Application - Made by Deepak Shakya</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.15" />
+	<style type="text/css">
+		#container{border:2px solid #006699; width:60%; font:44px 'Trebuchet MS';}
+		.contents{text-align:left;margin:50px 0px 0px 100px;}
+		.contents label{font-size:28px;display:block;font-weight:bold;}
+		.contents input{font:25px 'Trebuchet MS'; border:2px solid #0099CC;width:375px;padding:10px;background:#F2FCFF;margin-bottom:20px;}
+		.button{border:1px solid #006699;background:#F2FCFF;font:35px 'Trebuchet MS';margin-bottom:20px;width:150px;}
+	</style>
+</head>
+<body>
+	<form action="checkLogin.do" method="post" >
+		<center>
+			<div id="container">
+				<div class="header">Login Application</div>
+				<div class="contents">
+					<label for="username">User Name :</label>
+					<input type="text" id="username" name="uname" size="10" />
+					<label for="password">Password :</label>
+					<input type="password" id="password" name="pass" size="10" />
+				</div>
+				<input class="button" type="submit" name="btnLogin" value="Log In" />
+			</div>
+		</center>
+	</form>
+</body>
+</html>
